@@ -11,7 +11,7 @@ const Navbar = () => {
         const token = localStorage.getItem("token");
 
         axios({
-            url: `${process.env.REACT_APP_NOTERAPP_BACKEND}/users/logout`,
+            url: `${process.env.REACT_APP_PHYSIOAPP_BACKEND}/users/logout`,
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -29,7 +29,7 @@ const Navbar = () => {
         const token = localStorage.getItem("token");
 
         axios({
-            url: `${process.env.REACT_APP_NOTERAPP_BACKEND}/users/delete`,
+            url: `${process.env.REACT_APP_PHYSIOAPP_BACKEND}/users/delete`,
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -45,7 +45,7 @@ const Navbar = () => {
         <div className="Navbar">
             <div className="NavTitle">
                 <Link className="NavTitle" to="/dashboard">
-                    <h1 className="Titletext">Noter</h1>
+                    <h1 className="Titletext">PhysioApp</h1>
                 </Link>
             </div>
             <div className="NavRouters">

@@ -11,11 +11,11 @@ const Signin = () => {
 
     const handleSignin = (e) => {
         e.preventDefault();
-        const user = { username, password };
+        const user = { username, password};
 
         axios({
             method: "POST",
-            url: `${process.env.REACT_APP_NOTERAPP_BACKEND}/users/login`,
+            url: `${process.env.REACT_APP_PHYSIOAPP_BACKEND}/users/login`,
             headers: {
                 "Content-Type": "application/json",
             },
@@ -32,36 +32,13 @@ const Signin = () => {
                 setUsername("");
                 setPassword("");
             });
-    };
-
-    const handleRegister = (e) => {
-        e.preventDefault();
-
-        const user = { username, password };
-
-        axios({
-            method: "POST",
-            url: `${process.env.REACT_APP_NOTERAPP_BACKEND}/users/`,
-            headers: {
-                "Content-Type": "application/json",
-            },
-            data: user,
-        })
-            .then((res) => {
-                console.log("New User created");
-                localStorage.setItem("token", res.data.token);
-                navigate("/dashboard");
-            })
-            .catch((err) => {
-                alert(err);
-                setUsername("");
-                setPassword("");
-            });
-    };
-
+    }
+    const handleSignupButton = () => {
+        navigate("/signup")
+    }
     return (
         <div className="Signin">
-            <h1 className="SigninHead">Noter</h1>
+            <h1 className="SigninHead">PhysioApp</h1>
             <div className="SigninForm">
                 <form>
                     <div className="FormUsername">
@@ -92,12 +69,13 @@ const Signin = () => {
                         <button className="Btns" onClick={handleSignin}>
                             Sign In
                         </button>
+                        <p>No account? Sign up here...</p>
                         <button
                             className="Btns registerBtn"
-                            onClick={handleRegister}
+                            onClick={handleSignupButton}
                         >
                             {" "}
-                            Create Account{" "}
+                            Sign up{" "}
                         </button>
                     </div>
                 </form>

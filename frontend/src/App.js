@@ -6,6 +6,7 @@ import CreatePage from "./pages/CreatePage";
 import DashboardPage from "./pages/DashboardPage";
 import DeletePage from "./pages/DeletePage";
 import SigninPage from "./pages/SigninPage";
+import SignupPage from "./pages/SignupPage";
 
 function App() {
     const token = localStorage.getItem("token");
@@ -15,6 +16,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<SigninPage />} />
+                    <Route path="/signup" element={<SignupPage />} />
                     <Route path="/dashboard" element={<DashboardPage />} />
                     <Route path="/create" element={<CreatePage />} />
 

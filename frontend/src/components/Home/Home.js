@@ -12,7 +12,7 @@ const Home = () => {
         const token = localStorage.getItem("token");
 
         axios
-            .get(`${process.env.REACT_APP_NOTERAPP_BACKEND}/notes`, {
+            .get(`${process.env.REACT_APP_PHYSIOAPP_BACKEND}/notes`, {
                 headers: { Authorization: `Bearer ${token}` },
             })
             .then((res) => {
@@ -41,7 +41,7 @@ const Home = () => {
             </Link>
 
             {!noteList ||
-                (noteList.length == 0 && (
+                (noteList.length === 0 && (
                     <h2 className="NoNotesFound">No Notes Found</h2>
                 ))}
             <div className="NoteList">

@@ -14,7 +14,7 @@ const DeleteTask = () => {
     const token = localStorage.getItem("token");
 
     axios({
-        url: `${process.env.REACT_APP_NOTERAPP_BACKEND}/notes/${id}`,
+        url: `${process.env.REACT_APP_PHYSIOAPP_BACKEND}/notes/${id}`,
         method: "GET",
         headers: {
             Authorization: `Bearer ${token}`,
@@ -29,7 +29,7 @@ const DeleteTask = () => {
 
     const handleYesDelete = () => {
         axios({
-            url: `${process.env.REACT_APP_NOTERAPP_BACKEND}/notes/${id}`,
+            url: `${process.env.REACT_APP_PHYSIOAPP_BACKEND}/notes/${id}`,
 
             method: "DELETE",
             headers: {
