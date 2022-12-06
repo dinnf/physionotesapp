@@ -19,9 +19,8 @@ router.post("/users", async (req, res) => {
             res.status(500).send({
                 message: "Password has to be minimum 8 characters",
             });
-        } else if (e.keyPattern.username === 1) {
-            res.status(500).send({ message: "Username already taken!" });
-        } else {
+        }
+        else {
             res.status(500).send({ message: "Something went wrong" });
         }
     }

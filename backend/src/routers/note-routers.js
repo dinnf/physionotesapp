@@ -9,6 +9,7 @@ router.post("/notes", auth, async (req, res) => {
     const note = new Note({
         ...req.body,
         owner: req.user._id,
+        patientnotes: req.patient._id,
     });
     try {
         await note.save();
@@ -20,14 +21,7 @@ router.post("/notes", auth, async (req, res) => {
 
 router.get("/notes", auth, async (req, res) => {
     try {
-        // await req.user.populate("notes");
-
-        // res.status(200).send(req.user.notes);
-
         await req.user.populate("notes");
-
-        console.log(req.user.notes);
-
         res.send(req.user.notes);
     } catch (e) {
         console.log(e);

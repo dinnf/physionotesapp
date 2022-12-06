@@ -26,6 +26,29 @@ const userSchema = new mongoose.Schema(
                 },
             },
         ],
+        firstname:{
+            type:String,
+            required:true,
+            trim:true,
+        },
+        lastname:{
+            type:String,
+            required:true,
+            trim:true,
+        },
+        isActive:{
+            type:Boolean
+        },
+        email: {
+            type:String,
+            required:true,
+            trim:true,
+        },
+        designation:{
+            type:String,
+            required:true,
+            trim:true,
+        },
     },
     {
         timestamps: true,
@@ -38,6 +61,11 @@ userSchema.virtual("notes", {
     foreignField: "owner",
 });
 
+userSchema.virtual("patients", {
+    ref: "Patient",
+    localField: "_id",
+    foreignField: "physio"
+})
 userSchema.methods.toJSON = function () {
     const user = this;
     const userObject = user.toObject();
@@ -52,7 +80,7 @@ userSchema.methods.generateAuthToken = async function () {
     const user = this;
     const token = jwt.sign(
         { _id: user.id.toString() },
-        process.env.NOTER_JWT_SECRET
+        process.env.PHYSIOAPP_JWT_SECRET
     );
 
     user.tokens = user.tokens.concat({ token });

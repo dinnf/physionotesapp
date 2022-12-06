@@ -4,6 +4,7 @@ require("./db/mongoose.js");
 
 const noteRouter = require("./routers/note-routers.js");
 const userRouter = require("./routers/user-routers.js");
+const patientRouter = require("./routers/patient-routers")
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(express.json());
 
 app.use(noteRouter);
 app.use(userRouter);
+app.use(patientRouter);
 
 const port = process.env.PORT || 8000;
 

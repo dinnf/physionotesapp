@@ -12,11 +12,17 @@ const noteSchema = new mongoose.Schema(
             required: true,
             trim: true,
         },
-        owner: {
+        physio: {
             type: mongoose.Schema.Types.ObjectId,
             required: true,
             ref: "User",
         },
+        patient: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: "Patient"
+
+        }
     },
     {
         timestamps: true,
