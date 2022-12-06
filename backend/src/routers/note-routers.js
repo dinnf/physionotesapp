@@ -9,7 +9,6 @@ router.post("/notes", auth, async (req, res) => {
     const note = new Note({
         ...req.body,
         owner: req.user._id,
-        patientnotes: req.patient._id,
     });
     try {
         await note.save();
