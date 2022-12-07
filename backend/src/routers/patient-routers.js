@@ -4,7 +4,7 @@ const auth = require("../middlewares/auth");
 
 const router = new express.Router();
 // Create new patient
-router.post("/patients",auth, async (req, res) => {
+router.post("/patients", async (req, res) => {
     const patient = new Patient({
         ...req.body,
         physio: req.user._id
@@ -17,7 +17,7 @@ router.post("/patients",auth, async (req, res) => {
     }
 });
 // Delete patient
-router.delete("/patients/:id", auth, async (req, res) => {
+router.delete("/patients/:id", async (req, res) => {
     try {
         const patient = await Patient.findOneAndDelete({ _id: req.params.id });
 
@@ -30,7 +30,7 @@ router.delete("/patients/:id", auth, async (req, res) => {
     }
 });
 // Get a patient
-router.get("/patients/:id", auth, async (req, res) => {
+router.get("/patients/:id", async (req, res) => {
     try {
         const patient = await Patient.findById({ _id: req.params.id });
         if (!patient) {
@@ -42,7 +42,7 @@ router.get("/patients/:id", auth, async (req, res) => {
     }
 });
 // Get all patients
-router.get("/patients", auth, async (req, res) => {
+router.get("/patients", async (req, res) => {
     try {
 
         await req.user.populate("patients");

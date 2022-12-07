@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+//const bcrypt = require("bcryptjs");
+//const jwt = require("jsonwebtoken");
 
 const Note = require("./note.js");
 
@@ -18,14 +18,14 @@ const userSchema = new mongoose.Schema(
             trim: true,
             minlength: 8,
         },
-        tokens: [
+        /*tokens: [
             {
                 token: {
                     type: String,
                     required: true,
                 },
             },
-        ],
+        ],*/
         firstname:{
             type:String,
             required:true,
@@ -66,7 +66,7 @@ userSchema.virtual("patients", {
     localField: "_id",
     foreignField: "physio"
 })
-userSchema.methods.toJSON = function () {
+/*userSchema.methods.toJSON = function () {
     const user = this;
     const userObject = user.toObject();
 
@@ -75,8 +75,8 @@ userSchema.methods.toJSON = function () {
 
     return userObject;
 };
-
-userSchema.methods.generateAuthToken = async function () {
+*/
+/*userSchema.methods.generateAuthToken = async function () {
     const user = this;
     const token = jwt.sign(
         { _id: user.id.toString() },
@@ -88,8 +88,8 @@ userSchema.methods.generateAuthToken = async function () {
 
     return token;
 };
-
-userSchema.statics.findByCredentials = async (username, password) => {
+*/
+/*userSchema.statics.findByCredentials = async (username, password) => {
     const user = await User.findOne({ username });
 
     if (!user) {
@@ -120,7 +120,7 @@ userSchema.pre("remove", async function (next) {
     await Note.deleteMany({ owner: user._id });
     next();
 });
-
+*/
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;

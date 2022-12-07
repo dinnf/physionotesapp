@@ -5,7 +5,7 @@ const auth = require("../middlewares/auth");
 
 const router = new express.Router();
 
-router.post("/notes", auth, async (req, res) => {
+router.post("/notes", async (req, res) => {
     const note = new Note({
         ...req.body,
         owner: req.user._id,
@@ -18,7 +18,7 @@ router.post("/notes", auth, async (req, res) => {
     }
 });
 
-router.get("/notes", auth, async (req, res) => {
+router.get("/notes", async (req, res) => {
     try {
         await req.user.populate("notes");
         res.send(req.user.notes);
@@ -28,7 +28,7 @@ router.get("/notes", auth, async (req, res) => {
     }
 });
 
-router.get("/notes/:id", auth, async (req, res) => {
+router.get("/notes/:id", async (req, res) => {
     try {
         const note = await Note.findById({ _id: req.params.id });
         if (!note) {
@@ -40,7 +40,7 @@ router.get("/notes/:id", auth, async (req, res) => {
     }
 });
 
-router.delete("/notes/:id", auth, async (req, res) => {
+router.delete("/notes/:id", async (req, res) => {
     try {
         const note = await Note.findOneAndDelete({ _id: req.params.id });
 

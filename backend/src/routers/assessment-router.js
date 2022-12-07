@@ -1,10 +1,10 @@
 const express = require("express");
 
 const Note = require("../models/assessment");
-const auth = require("../middlewares/auth");
+//const auth = require("../middlewares/auth");
 
 const router = new express.Router();
-router.post("/assessments", auth, async (req, res) => {
+router.post("/assessments", async (req, res) => {
     const assessment = new Assessment({
         ...req.body,
         owner: req.user._id,
