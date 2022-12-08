@@ -7,9 +7,12 @@ import DashboardPage from "./pages/DashboardPage";
 import DeletePage from "./pages/DeletePage";
 import SigninPage from "./pages/SigninPage";
 import SignupPage from "./pages/SignupPage";
+import CreatePatientPage from "./pages/CreatePatientPage";
+import DeletePatientPage from "./pages/DeletePatientPage";
+import CreateNotePage from "./pages/CreateNotePage"
 
 function App() {
-    const token = localStorage.getItem("token");
+   // const token = localStorage.getItem("token");
 
     return (
         <div className="App">
@@ -19,8 +22,10 @@ function App() {
                     <Route path="/signup" element={<SignupPage />} />
                     <Route path="/dashboard" element={<DashboardPage />} />
                     <Route path="/create" element={<CreatePage />} />
-
                     <Route path="/deletetask/:id" element={<DeletePage />} />
+                    <Route path="/newpatient" element={<CreatePatientPage />} />
+                    <Route path="/deletepatient/:id" element={<DeletePatientPage />} />
+                    <Route path="/createassessment/:id" element={<CreateNotePage />} />
                 </Routes>
             </BrowserRouter>
         </div>

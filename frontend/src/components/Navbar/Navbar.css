@@ -65,13 +65,17 @@
     /* border: 2px solid rgb(96, 197, 255); */
 }
 
-.DelAccountBtn {
+.DelAccountBtn  {
     width: 130px;
     background-color: rgb(255, 62, 62);
 }
+
 
 .DelAccountBtn:hover {
     background: none;
     color: rgb(255, 62, 62);
     border: 2px solid rgb(255, 62, 62);
+}
+.CreatePatientBtn {
+    background-color:green;
 }

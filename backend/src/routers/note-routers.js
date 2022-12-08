@@ -1,18 +1,18 @@
 const express = require("express");
 
-const Note = require("../models/note.js");
+const Assessment = require("../models/assessment.js");
 const auth = require("../middlewares/auth");
 
 const router = new express.Router();
 
 router.post("/notes", auth, async (req, res) => {
-    const note = new Note({
+    const assessment = new Assessment({
         ...req.body,
         owner: req.user._id,
     });
     try {
-        await note.save();
-        res.status(201).send({ note, message: "Note Saved" });
+        await assessment.save();
+        res.status(201).send({ assessment, message: "Note Saved" });
     } catch (e) {
         res.status(500).send(e);
     }
@@ -21,7 +21,7 @@ router.post("/notes", auth, async (req, res) => {
 router.get("/notes", auth, async (req, res) => {
     try {
         await req.user.populate("notes");
-        res.send(req.user.notes);
+        res.send(req.user.assessments);
     } catch (e) {
         console.log(e);
         res.status(500).send(e);
@@ -30,11 +30,11 @@ router.get("/notes", auth, async (req, res) => {
 
 router.get("/notes/:id", auth, async (req, res) => {
     try {
-        const note = await Note.findById({ _id: req.params.id });
-        if (!note) {
+        const assessment = await Assessment.findById({ _id: req.params.id });
+        if (!assessment) {
             return res.status(404).send();
         }
-        res.send(note);
+        res.send(assessment);
     } catch (e) {
         res.status(500).send();
     }
@@ -42,9 +42,9 @@ router.get("/notes/:id", auth, async (req, res) => {
 
 router.delete("/notes/:id", auth, async (req, res) => {
     try {
-        const note = await Note.findOneAndDelete({ _id: req.params.id });
+        const assessment = await Assessment.findOneAndDelete({ _id: req.params.id });
 
-        if (!note) {
+        if (!assessment) {
             return res.status(404).send();
         }
         res.send({ message: "Note was deleted" });

@@ -40,6 +40,9 @@ const Navbar = () => {
             navigate("/");
         });
     };
+    const handleCreatePatient = () => {
+        navigate("/newpatient")
+    }
 
     return (
         <div className="Navbar">
@@ -53,7 +56,14 @@ const Navbar = () => {
                     <span className="routes">Dashboard</span>
                 </Link>
             </div>
+            
             <div className="NavBtns">
+            <button
+                    className="CreatePatientBtn"
+                    onClick={handleCreatePatient}
+                >
+                    Create New Patient
+                </button>
                 <button className="CreateNote" onClick={handleSignOut}>
                     Sign Out
                 </button>
