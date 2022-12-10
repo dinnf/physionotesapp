@@ -91,7 +91,7 @@ const Home = () => {
              <h1 className="HomePatients">Patients</h1>
 
             <Link to="/newpatient">
-                <button className="AddNewPatientBtn" >New Patient</button>
+                <button className="AddNewPatientBtn" >+ New Patient</button>
             </Link>
 
             {!patientList ||

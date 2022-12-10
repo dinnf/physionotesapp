@@ -40,10 +40,11 @@ function Signup() {
     };
   return (
     <div className="Signup">
-            <h1 className="SignupHead">PHYSIOAPP</h1>
+            <h1 className="SignupHead">PhysioNB</h1>
             <div className="SignupForm">
                 <form>
-                    <div className="SignupFormUsername">
+                    <div className="Form">
+                    <div className="SignupFormUsername FormRow">
                         <span className="FormLabel">Username</span>
                         <input
                             type="text"
@@ -55,7 +56,7 @@ function Signup() {
                             }}
                         />
                     </div>
-                    <div className="FormPassword">
+                    <div className="FormPassword FormRow">
                         <span className="FormLabel">Password</span>
                         <input
                             type="password"
@@ -67,7 +68,7 @@ function Signup() {
                             }}
                         />
                     </div>
-                    <div className="SignupFormFirstName">
+                    <div className="SignupFormFirstName FormRow">
                         <span className="FormLabel">First Name</span>
                         <input
                             type="text"
@@ -79,7 +80,7 @@ function Signup() {
                             }}
                         />
                     </div>
-                    <div className="SignupFormLastName">
+                    <div className="SignupFormLastName FormRow">
                         <span className="FormLabel">Last Name</span>
                         <input
                             type="text"
@@ -91,7 +92,7 @@ function Signup() {
                             }}
                         />
                     </div>
-                    <div className="SignupFormEmail">
+                    <div className="SignupFormEmail FormRow">
                         <span className="FormLabel">Email</span>
                         <input
                             type="text"
@@ -103,7 +104,7 @@ function Signup() {
                             }}
                         />
                     </div>
-                    <div className="SignupFormDesignation">
+                    <div className="SignupFormDesignation FormRow">
                         <span className="FormLabel">Designation</span>
                         <input
                             type="text"
@@ -115,9 +116,10 @@ function Signup() {
                             }}
                         />
                     </div>
-                    <div className="FormBtns">
+                    </div>
+                    <div className="signupBtn">
                         <button
-                            className="Btns registerBtn"
+                            className="Btns signupBtn1"
                             type="button"
                             onClick={handleRegister}
                         >

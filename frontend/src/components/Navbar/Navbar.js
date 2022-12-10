@@ -24,22 +24,9 @@ const Navbar = () => {
             }
         });
     };
-
-    const handleDeleteAcc = () => {
-        const token = localStorage.getItem("token");
-
-        axios({
-            url: `${process.env.REACT_APP_PHYSIOAPP_BACKEND}/users/delete`,
-            method: "DELETE",
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        }).then(() => {
-            console.log("User Account deleted");
-            localStorage.removeItem("token");
-            navigate("/");
-        });
-    };
+    const handleDeleteAccount = () => {
+        navigate('/deleteaccount')
+    }
     const handleCreatePatient = () => {
         navigate("/newpatient")
     }
@@ -48,7 +35,7 @@ const Navbar = () => {
         <div className="Navbar">
             <div className="NavTitle">
                 <Link className="NavTitle" to="/dashboard">
-                    <h1 className="Titletext">PhysioApp</h1>
+                    <h1 className="Titletext">PhysioNB</h1>
                 </Link>
             </div>
             <div className="NavRouters">
@@ -59,17 +46,17 @@ const Navbar = () => {
             
             <div className="NavBtns">
             <button
-                    className="CreatePatientBtn"
+                    className="CreatePatientBtn CreateNote"
                     onClick={handleCreatePatient}
                 >
-                    Create New Patient
+                    Add New Patient
                 </button>
                 <button className="CreateNote" onClick={handleSignOut}>
                     Sign Out
                 </button>
                 <button
                     className="CreateNote DelAccountBtn"
-                    onClick={handleDeleteAcc}
+                    onClick={handleDeleteAccount}
                 >
                     Delete Account
                 </button>

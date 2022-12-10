@@ -1,0 +1,11 @@
+.NewPatient {
+    background-color: rgb(75, 139, 59);
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    
+}
+.NewPatientHead {
+    margin-top: 20px;
+}

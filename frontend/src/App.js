@@ -10,6 +10,7 @@ import SignupPage from "./pages/SignupPage";
 import CreatePatientPage from "./pages/CreatePatientPage";
 import DeletePatientPage from "./pages/DeletePatientPage";
 import CreateNotePage from "./pages/CreateNotePage"
+import DeleteAccountPage from "./pages/DeleteAccountPage"
 
 function App() {
    // const token = localStorage.getItem("token");
@@ -26,6 +27,7 @@ function App() {
                     <Route path="/newpatient" element={<CreatePatientPage />} />
                     <Route path="/deletepatient/:id" element={<DeletePatientPage />} />
                     <Route path="/createassessment/:id" element={<CreateNotePage />} />
+                    <Route path="/deleteaccount" element={<DeleteAccountPage />} />
                 </Routes>
             </BrowserRouter>
         </div>

@@ -1,10 +1,10 @@
 .Home {
-    background-color: rgb(78, 78, 78);
-    min-height: 60vh;
-    color: rgb(255, 217, 0);
-    /* color: rgb(96, 197, 255); */
+    background-color: rgb(75, 139, 59);
+    min-height: 40vh;
+    color: rgb(255, 255, 255);
     padding: 150px 300px;
     padding-bottom: 154px;
+    height: 35vh;
 }
 
 .HomeNotes {
@@ -81,4 +81,22 @@
     border: 3px solid rgb(255, 217, 0);
     /* border: 2px solid rgb(96, 197, 255); */
     box-shadow: 1px 1px 20px rgb(32, 32, 32);
+}
+.AddNewPatientBtn {
+    background-color: rgb(255, 217, 0);
+    height: 30px;
+    width: 130px;
+    margin-right: 20px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.AddNewPatientBtn:hover {
+    color: rgb(0,0,0);
+    border: 2px solid rgb(0,0,0);
 }

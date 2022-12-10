@@ -33,9 +33,9 @@ function CreatePatient() {
 
   return (
     <div className="NewPatient">
-    <h1 className="NewPatientHead">Create New Patient</h1>
     <div className="NewPatientForm">
         <form>
+        <h1 className="NewPatientHead">Create New Patient</h1>
             <div className="CreateNewPatient">
                 <span className="FormLabel">Patient ID Number</span>
                 <input

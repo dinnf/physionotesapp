@@ -1,0 +1,24 @@
+.DeleteAccount {
+    background-color: rgb(75, 139, 59);
+    height: 61.5vh;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    padding: 50px;
+}
+.DelAccountQuestion {
+    margin:20px;
+}
+.NoDeleteButton {
+    margin-bottom: 20px;
+}
+.NoDeleteButton:hover {
+    border: 2px solid black;
+    background-color:rgb(255, 217, 0);
+    color: rgb(0,0,0)
+}
+.YesDeleteButton:hover {
+    background-color: rgb(255, 62, 62);
+    border: 2px solid black;
+    color: rgb(0,0,0)
+}

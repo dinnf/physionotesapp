@@ -2,28 +2,19 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import "./CreateNote.css";
-
+import bodyChart from "./bodychart.png"
 const CreateNote = () => {
-    const [hpc, setHpc] = useState("History of Presenting Complaint");
-    const [mechanism, setMechanism] = useState("");
-    const [trauma, setTrauma] = useState("");
-    const [onset, setOnset] = useState("");
-    const [progression, setProgression] = useState("");
+    const [hpc, setHpc] = useState("");
     const [symptoms, setSymptoms] = useState("");
     const [pain, setPain] = useState("");
-    const [location, setLocation] = useState("");
     const [nature, setNature] = useState("");
     const [severity, setSeverity] = useState("");
     const [irritability, setIrritability] = useState("");
     const [aggravatingfactors, setAggravatingfactors] = useState("");
-    const [onsettime, setOnsettime] = useState("");
     const [easingfactors, setEasingfactors] = useState("");
-    const [timetoease, setTimetoease] = useState("");
     const [dailypattern, setDailypattern] = useState("");
-    const [stiffness, setStiffness] = useState("");
     const [pmh, setPmh] = useState("");
     const [sochx, setSochx] = useState("");
-    const [family, setFamily] = useState("");
     const [work, setWork] = useState("");
     const [stress, setStress] = useState("");
     const [hobbies, setHobbies] = useState("");
@@ -32,7 +23,6 @@ const CreateNote = () => {
     const [yellowflags, setYellowflags] = useState("");
     const [investigations, setInvestigations] = useState("");
     const [treatment, setTreatment] = useState("");
-    const [neuro, setNeuro] = useState("");
     const [specialquestions, setSpecialquestions] = useState("");
    
     const navigate = useNavigate();
@@ -42,7 +32,7 @@ const CreateNote = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const assessment = { hpc, mechanism, trauma, onset, progression, symptoms, pain, location, nature, severity, irritability, aggravatingfactors, onsettime, easingfactors, timetoease, dailypattern, stiffness, pmh, sochx, family, work, stress, hobbies, exercise, redflags, yellowflags, investigations, treatment, neuro, specialquestions };
+        const assessment = { hpc, symptoms, pain, nature, severity, irritability, aggravatingfactors, easingfactors, dailypattern, pmh, sochx, work, stress, hobbies, exercise, redflags, yellowflags, investigations, treatment, specialquestions };
 
         axios({
             method: "POST",
@@ -59,52 +49,18 @@ const CreateNote = () => {
     };
 
     return (
-        <div className="CreateForm">
             <div className="FormContent">
-                <form onSubmit={handleSubmit}>
-                    <div className="NoteForm">
-                        <h1>Assessment {id}</h1>
+                <h1>Assessment {id}</h1>
+                        <form onSubmit={handleSubmit}>
+                        <div className="BigContainer">
+                            <div className="LeftColumn">
+                        <div className="NoteForm">
+                        
                         <h3 className="TextHead">History of Presenting Complaint</h3>
                         <textarea
                             className="NoteText"
                             value={hpc}
                             onChange={(e) => setHpc(e.target.value)}
-                            
-                        />
-                    </div>
-                    <div className="NoteForm">
-                        <h3 className="TextHead">Mechanism</h3>
-                        <textarea
-                            className="NoteText"
-                            value={mechanism}
-                            onChange={(e) => setMechanism(e.target.value)}
-                            
-                        />
-                    </div>
-                    <div className="NoteForm">
-                        <h3 className="TextHead">Trauma</h3>
-                        <textarea
-                            className="NoteText"
-                            value={trauma}
-                            onChange={(e) => setTrauma(e.target.value)}
-                            
-                        />
-                    </div>
-                    <div className="NoteForm">
-                        <h3 className="TextHead">Onset</h3>
-                        <textarea
-                            className="NoteText"
-                            value={onset}
-                            onChange={(e) => setOnset(e.target.value)}
-                            
-                        />
-                    </div>
-                    <div className="NoteForm">
-                        <h3 className="TextHead">Progression</h3>
-                        <textarea
-                            className="NoteText"
-                            value={progression}
-                            onChange={(e) => setProgression(e.target.value)}
                             
                         />
                     </div>
@@ -123,15 +79,6 @@ const CreateNote = () => {
                             className="NoteText"
                             value={pain}
                             onChange={(e) => setPain(e.target.value)}
-                            
-                        />
-                    </div>
-                    <div className="NoteForm">
-                        <h3 className="TextHead">Location</h3>
-                        <textarea
-                            className="NoteText"
-                            value={location}
-                            onChange={(e) => setLocation(e.target.value)}
                             
                         />
                     </div>
@@ -172,15 +119,6 @@ const CreateNote = () => {
                         />
                     </div>
                     <div className="NoteForm">
-                        <h3 className="TextHead">Onset Time</h3>
-                        <textarea
-                            className="NoteText"
-                            value={onsettime}
-                            onChange={(e) => setOnsettime(e.target.value)}
-                            
-                        />
-                    </div>
-                    <div className="NoteForm">
                         <h3 className="TextHead">Easing Factors</h3>
                         <textarea
                             className="NoteText"
@@ -189,30 +127,15 @@ const CreateNote = () => {
                             
                         />
                     </div>
-                    <div className="NoteForm">
-                        <h3 className="TextHead">Time to Ease</h3>
-                        <textarea
-                            className="NoteText"
-                            value={timetoease}
-                            onChange={(e) => setTimetoease(e.target.value)}
-                            
-                        />
                     </div>
+                    <div className="RightColumn">
+                    <img src={bodyChart} alt='bodychart' className="bodychart" />
                     <div className="NoteForm">
                         <h3 className="TextHead">Daily Pattern</h3>
                         <textarea
                             className="NoteText"
                             value={dailypattern}
                             onChange={(e) => setDailypattern(e.target.value)}
-                            
-                        />
-                    </div>
-                    <div className="NoteForm">
-                        <h3 className="TextHead">Stiffness</h3>
-                        <textarea
-                            className="NoteText"
-                            value={stiffness}
-                            onChange={(e) => setStiffness(e.target.value)}
                             
                         />
                     </div>
@@ -231,15 +154,6 @@ const CreateNote = () => {
                             className="NoteText"
                             value={sochx}
                             onChange={(e) => setSochx(e.target.value)}
-                            
-                        />
-                    </div>
-                    <div className="NoteForm">
-                        <h3 className="TextHead">Family</h3>
-                        <textarea
-                            className="NoteText"
-                            value={family}
-                            onChange={(e) => setFamily(e.target.value)}
                             
                         />
                     </div>
@@ -306,6 +220,8 @@ const CreateNote = () => {
                             
                         />
                     </div>
+                    <button className="Accordion">Treatment</button>
+                    <div className="Panel">
                     <div className="NoteForm">
                         <h3 className="TextHead">Treatment</h3>
                         <textarea
@@ -315,14 +231,6 @@ const CreateNote = () => {
                             
                         />
                     </div>
-                    <div className="NoteForm">
-                        <h3 className="TextHead">Neuro</h3>
-                        <textarea
-                            className="NoteText"
-                            value={neuro}
-                            onChange={(e) => setNeuro(e.target.value)}
-                            
-                        />
                     </div>
                     <div className="NoteForm">
                         <h3 className="TextHead">Special Questions</h3>
@@ -337,9 +245,11 @@ const CreateNote = () => {
                     <button className="CreateNoteBtn" onClick={handleSubmit}>
                         Create Assessment
                     </button>
+                    </div>
+                </div>
                 </form>
+                
             </div>
-        </div>
     );
 };
 

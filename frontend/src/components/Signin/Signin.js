@@ -38,7 +38,7 @@ const Signin = () => {
     }
     return (
         <div className="Signin">
-            <h1 className="SigninHead">PhysioApp</h1>
+            <h1 className="SigninHead">PhysioNB</h1>
             <div className="SigninForm">
                 <form>
                     <div className="FormUsername">
@@ -66,7 +66,7 @@ const Signin = () => {
                         />
                     </div>
                     <div className="FormBtns">
-                        <button className="Btns" onClick={handleSignin}>
+                        <button className="Btns signinBtn" onClick={handleSignin}>
                             Sign In
                         </button>
                         <p>No account? Sign up here...</p>

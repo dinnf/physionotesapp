@@ -1,0 +1,59 @@
+
+.Signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(75, 139, 59);
+    color: rgb(255, 255, 255);
+    height: 92.1vh;
+}
+.FormInput {
+    height: 35px;
+    width: 300px;
+    text-align: center;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    background: rgb(255, 255, 255);
+    outline: none;
+    color: rgb(0,0,0);
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.FormLabel {
+    font-size: 20px;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 5px black;
+    cursor: default;
+    margin-right:20px;
+}
+.SignupHead {
+    margin: 50px 0px;
+    font-weight: lighter;
+    font-size: 36px;
+    cursor: default;
+    text-shadow: 2px 2px 5px black;
+    color: rgb(255,255,255);
+}
+.SignupForm {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Form {
+    display: table;
+    margin: 5px;
+    border-spacing: 5px;
+}
+.FormRow {
+    display: table-row;  
+    padding: 5px;
+}
+.FormLabel { display: table-cell;
+padding: 5px; }
+input { display: table-cell;
+text-align:right; }
+.signupBtn {
+    width: 100%;
+    margin: auto;
+}  

@@ -3,15 +3,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(43, 43, 43);
-    color: rgb(255, 217, 0);
-    /* color: rgb(96, 197, 255); */
+    background-color: rgb(47, 87, 37);
+    color: rgb(255, 255, 255);
     height: 70px;
 }
 
 .NavTitle {
     text-decoration: none;
-    color: rgb(255, 217, 0);
+    color: rgb(255, 255, 255);
 }
 
 .Titletext {
@@ -24,7 +23,7 @@
 .NavRouters {
     font-size: 18px;
     text-decoration: none;
-    color: rgb(255, 217, 0);
+    color: rgb(255, 255, 255);
 }
 
 .routes {
@@ -58,12 +57,9 @@
 }
 
 .CreateNote:hover {
-    background: none;
-    color: rgb(255, 217, 0);
-    /* color: rgb(96, 197, 255); */
-    border: 2px solid rgb(255, 217, 0);
-    /* border: 2px solid rgb(96, 197, 255); */
-}
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(0,0,0);
+   }
 
 .DelAccountBtn  {
     width: 130px;
@@ -72,10 +68,10 @@
 
 
 .DelAccountBtn:hover {
-    background: none;
-    color: rgb(255, 62, 62);
-    border: 2px solid rgb(255, 62, 62);
+    color: rgb(0,0,0);
+    border: 2px solid rgb(0,0,0);
 }
 .CreatePatientBtn {
     background-color:green;
+    width:140px;
 }

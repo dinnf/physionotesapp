@@ -2,9 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(78, 78, 78);
-    color: rgb(255, 217, 0);
-    height: 92.1vh;
+    background-color: rgb(75, 139, 59);
+    color: rgb(255, 255, 255);
+    height: 87.1vh;
 }
 
 .SigninHead {
@@ -49,11 +49,11 @@
     height: 35px;
     width: 300px;
     text-align: center;
-    border: 2px solid rgb(255, 217, 0);
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 10px;
-    background: rgb(78, 78, 78);
+    background: rgb(255, 255, 255);
     outline: none;
-    color: white;
+    color: rgb(0,0,0);
     font-size: 15px;
 }
 
@@ -67,11 +67,12 @@
 }
 
 .Btns {
+    color: rgb(255,255,255);
     padding: 7px 30px;
     margin-bottom: 20px;
     width: 100%;
     font-size: 15px;
-    background-color: rgb(255, 217, 0);
+    background-color: rgb(0, 0, 0);
     font-weight: bold;
     border: 2px solid black;
     outline: none;
@@ -79,11 +80,12 @@
     border-radius: 7px;
     transition: all 0.4s;
 }
-
+.signinBtn {
+    border: 2px solid rgb(8, 163, 163);
+}
 .Btns:hover {
-    background: none;
-    border: 2px solid rgb(255, 217, 0);
-    color: rgb(255, 217, 0);
+    
+    border: 2px solid rgb(255, 255, 255);
 }
 
 .registerBtn {
@@ -91,6 +93,5 @@
 }
 
 .registerBtn:hover {
-    border: 3px solid rgb(8, 163, 163);
-    color: rgb(8, 163, 163);
+    border: 3px solid rgb(255, 255, 255);
 }
