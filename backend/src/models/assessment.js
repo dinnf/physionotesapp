@@ -5,7 +5,7 @@ const assessmentSchema = new Schema({
     hpc:{type: String},
     mechanism:{type:String},
     trauma:{type:String},
-    gradual:{type:String},
+    onset:{type:String},
     progression:{type:String},
     symptoms:{type:String},
     pain:{type: String},

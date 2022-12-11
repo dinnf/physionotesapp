@@ -17,7 +17,16 @@ router.post("/notes", auth, async (req, res) => {
         res.status(500).send(e);
     }
 });
-
+router.get("/notes", auth, async (req, res) => {
+    try {
+        await req.user.populate("assessments");
+        res.send(req.user.assessments);
+    } catch (e) {
+        console.log(e);
+        res.status(500).send(e);
+    }
+});
+/*
 router.get("/notes", auth, async (req, res) => {
     try {
         await req.user.populate("notes");
@@ -27,7 +36,7 @@ router.get("/notes", auth, async (req, res) => {
         res.status(500).send(e);
     }
 });
-
+*/
 router.get("/notes/:id", auth, async (req, res) => {
     try {
         const assessment = await Assessment.findById({ _id: req.params.id });
@@ -40,6 +49,22 @@ router.get("/notes/:id", auth, async (req, res) => {
     }
 });
 
+// Get a patient with a specific user's ID
+router.get("/notes/:patientId", auth, async (req, res) => {
+    try {
+        console.log(patientId[0])
+        const patientObjectId = `ObjectId(${req.params.patientId})`
+        console.log(patientObjectId)
+        const patientNote = await Assessment.find({ patient: patientObjectId });
+        console.log(patientNote)
+        if (!patientNote) {
+            return res.status(404).send();
+        }
+        res.send(patientNote);
+    } catch (e) {
+        res.status(500).send();
+    }
+});
 router.delete("/notes/:id", auth, async (req, res) => {
     try {
         const assessment = await Assessment.findOneAndDelete({ _id: req.params.id });

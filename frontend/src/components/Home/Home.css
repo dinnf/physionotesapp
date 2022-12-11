@@ -2,15 +2,14 @@
     background-color: rgb(75, 139, 59);
     min-height: 40vh;
     color: rgb(255, 255, 255);
-    padding: 150px 300px;
-    padding-bottom: 154px;
-    height: 35vh;
+    padding: 30px;
+    height: 70vh;
+    display: flex;
+    align-items: top;
+    justify-content: space-evenly;
 }
 
-.HomeNotes {
-    font-weight: lighter;
-    cursor: default;
-}
+
 
 .NoteList {
     padding-top: 50px;
@@ -82,11 +81,11 @@
     /* border: 2px solid rgb(96, 197, 255); */
     box-shadow: 1px 1px 20px rgb(32, 32, 32);
 }
-.AddNewPatientBtn {
+.AddNewPatientBtn, .CreateAssessmentButton, .GetNoteButton {
     background-color: rgb(255, 217, 0);
     height: 30px;
     width: 130px;
-    margin-right: 20px;
+    margin: 10px;
     border: none;
     outline: none;
     border-radius: 10px;
@@ -99,4 +98,7 @@
 .AddNewPatientBtn:hover {
     color: rgb(0,0,0);
     border: 2px solid rgb(0,0,0);
+}
+.HomePatients {
+    padding-bottom: 20px;
 }

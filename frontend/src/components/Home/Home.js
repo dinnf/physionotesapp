@@ -59,6 +59,45 @@ const Home = () => {
 
     return (
         <div className="Home">
+            <div className="patientColumn">
+             <h1 className="HomePatients">Patients List</h1>
+            {!patientList ||
+                (patientList.length === 0 && (
+                    <h2 className="NoPatientsFound">No Patients Found</h2>
+                ))}
+            <div className="PatientList">
+                {patientList && (
+                    <div>
+                        {" "}
+                        {patientList.map((patient) => (
+                            <div className="Patient">
+                                <div className="PatientId">
+                                    {`NHI: ${patient.patientId} Name: ${patient.firstname} ${patient.lastname}`}
+                                </div>
+                                <Link to={`/deletepatient/${patient._id}`}>
+                                    <span className="DelIcon">
+                                        <DeleteIcon />
+                                    </span>
+                                </Link>
+                                <Link to={`/createassessment/${patient._id}`}>
+                                        <div>
+                                        <button className="CreateAssessmentButton">Create Note</button>
+                                        <button className="AddBtn">+</button>
+                                        </div>
+                                </Link>
+                                <Link to={`/getnote/${patient._id}`}>
+                                    <div>
+                                        <button className="GetNoteButton">View Notes</button>
+                                    </div>
+                                </Link>
+                                
+                            </div>
+                        ))}{" "}
+                    </div>
+                )}
+            </div>
+            </div>
+            <div className="NotesColumn">
             <h1 className="HomeNotes">Notes</h1>
 
             <Link to="/create">
@@ -88,40 +127,6 @@ const Home = () => {
                     </div>
                 )}
             </div>
-             <h1 className="HomePatients">Patients</h1>
-
-            <Link to="/newpatient">
-                <button className="AddNewPatientBtn" >+ New Patient</button>
-            </Link>
-
-            {!patientList ||
-                (patientList.length === 0 && (
-                    <h2 className="NoPatientsFound">No Patients Found</h2>
-                ))}
-            <div className="PatientList">
-                {patientList && (
-                    <div>
-                        {" "}
-                        {patientList.map((patient) => (
-                            <div className="Patient">
-                                <div className="PatientId">
-                                    {`${patient.patientId} ${patient.firstname} ${patient.lastname}`}
-                                    <Link to={`/createassessment/${patient._id}`}>
-                                        <div>
-                                        <span>Create Assessment</span>
-                                        <button className="AddBtn">+</button>
-                                        </div>
-                                    </Link>
-                                </div>
-                                <Link to={`/deletepatient/${patient._id}`}>
-                                    <span className="DelIcon">
-                                        <DeleteIcon />
-                                    </span>
-                                </Link>
-                            </div>
-                        ))}{" "}
-                    </div>
-                )}
             </div>
             
         </div>

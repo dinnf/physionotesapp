@@ -24,11 +24,27 @@ const CreateNote = () => {
     const [investigations, setInvestigations] = useState("");
     const [treatment, setTreatment] = useState("");
     const [specialquestions, setSpecialquestions] = useState("");
+
+    const [patientName, setPatientName] = useState("")
    
     const navigate = useNavigate();
     const { id } = useParams();
-
     const token = localStorage.getItem("token");
+
+    const getPatientName = () => {
+        axios({
+            method: "GET",
+            url: `${process.env.REACT_APP_PHYSIOAPP_BACKEND}/patients/${id}`,
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            }
+        }).then((res) => {
+            setPatientName(`NHI: ${res.data.patientId} Name: ${res.data.firstname} ${res.data.lastname}`)
+        });
+    };
+
+    getPatientName()
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -49,8 +65,9 @@ const CreateNote = () => {
     };
 
     return (
+        //Should make this all one component taking props
             <div className="FormContent">
-                <h1>Assessment {id}</h1>
+                <h1>{patientName}</h1>
                         <form onSubmit={handleSubmit}>
                         <div className="BigContainer">
                             <div className="LeftColumn">
@@ -127,9 +144,6 @@ const CreateNote = () => {
                             
                         />
                     </div>
-                    </div>
-                    <div className="RightColumn">
-                    <img src={bodyChart} alt='bodychart' className="bodychart" />
                     <div className="NoteForm">
                         <h3 className="TextHead">Daily Pattern</h3>
                         <textarea
@@ -148,6 +162,9 @@ const CreateNote = () => {
                             
                         />
                     </div>
+                    </div>
+                    <div className="RightColumn">
+                    <img src={bodyChart} alt='bodychart' className="bodychart" />
                     <div className="NoteForm">
                         <h3 className="TextHead">Social History</h3>
                         <textarea
@@ -220,8 +237,6 @@ const CreateNote = () => {
                             
                         />
                     </div>
-                    <button className="Accordion">Treatment</button>
-                    <div className="Panel">
                     <div className="NoteForm">
                         <h3 className="TextHead">Treatment</h3>
                         <textarea
@@ -230,7 +245,6 @@ const CreateNote = () => {
                             onChange={(e) => setTreatment(e.target.value)}
                             
                         />
-                    </div>
                     </div>
                     <div className="NoteForm">
                         <h3 className="TextHead">Special Questions</h3>
@@ -242,7 +256,7 @@ const CreateNote = () => {
                         />
                     </div>
                     
-                    <button className="CreateNoteBtn" onClick={handleSubmit}>
+                    <button className="CreateNoteBtn Btns CreateNewPatientBtn" onClick={handleSubmit}>
                         Create Assessment
                     </button>
                     </div>

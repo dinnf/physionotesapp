@@ -55,8 +55,8 @@ const userSchema = new mongoose.Schema(
     }
 );
 
-userSchema.virtual("notes", {
-    ref: "Note",
+userSchema.virtual("assessments", {
+    ref: "Assessment",
     localField: "_id",
     foreignField: "owner",
 });
